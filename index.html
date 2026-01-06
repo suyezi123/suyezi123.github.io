@@ -198,30 +198,30 @@
           margin-bottom: 10px;
           transition: all 0.3s ease;
           box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+          width: 100%; /* 确保框体充满父容器宽度 */
       }
 
-      /* 列表样式优化：解决重叠+个性化符号 */
-      ul, ol {
-          padding-left: 50px; /* 调整内边距适配新框体 */
-          margin: 10px auto 20px;
+      /* 列表样式优化：左对齐顶格 - 核心修改 */
+      .skill-list, .plan-list, .site-list {
+          padding-left: 30px; /* 只给列表符号留刚好的空间，取消多余内边距 */
+          margin: 10px 0 20px; /* 取消左右margin，实现顶格 */
           list-style: none; 
-          max-width: 800px; /* 限制宽度更美观 */
       }
 
-      /* 技能列表：星星符号 */
+      /* 技能列表：星星符号 - 调整位置适配顶格 */
       .skill-list li {
           color: #444;
           position: relative;
           font-size: 17px; 
       }
       .skill-list li .list-item-box {
-          padding-left: 30px; /* 给符号留空间 */
+          padding-left: 20px; /* 减少左侧内边距，贴合文字 */
       }
       .skill-list li::before {
           content: "★";
           color: #f5c518;
           position: absolute;
-          left: -35px; 
+          left: -25px; /* 调整符号位置，紧贴框体左侧 */
           top: 12px; /* 垂直居中 */
           font-size: 1.1rem; 
       }
@@ -233,20 +233,20 @@
           color: #2a60c9;
       }
 
-      /* 学习计划列表：月亮符号 */
+      /* 学习计划列表：月亮符号 - 调整位置适配顶格 */
       .plan-list li {
           color: #444;
           position: relative;
           font-size: 17px; 
       }
       .plan-list li .list-item-box {
-          padding-left: 30px;
+          padding-left: 20px;
       }
       .plan-list li::before {
           content: "☽";
           color: #4981e6;
           position: absolute;
-          left: -35px;
+          left: -25px;
           top: 12px;
           font-size: 1.3rem; 
       }
@@ -258,20 +258,20 @@
           color: #2a60c9;
       }
 
-      /* 网站列表：云朵符号 */
+      /* 网站列表：云朵符号 - 调整位置适配顶格 */
       .site-list li {
           color: #444;
           position: relative;
           font-size: 17px; 
       }
       .site-list li .list-item-box {
-          padding-left: 30px;
+          padding-left: 20px;
       }
       .site-list li::before {
           content: "☁";
           color: #8ec5fc;
           position: absolute;
-          left: -35px;
+          left: -25px;
           top: 12px;
           font-size: 1.1rem; 
       }
