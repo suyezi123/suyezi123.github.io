@@ -90,16 +90,16 @@
           margin: 15px 0;
       }
 
-      /* 表格样式 */
+      /* 表格样式 - 核心修改：宽度占满 */
       table {
-          width: 100%;
-          border-collapse: separate; /* 修改为separate支持圆角 */
+          width: 100%; /* 确保宽度100% */
+          border-collapse: separate;
           border-spacing: 0;
           border-radius: 10px;
           overflow: hidden;
           box-shadow: 0 4px 12px rgba(0,0,0,0.08);
           background-color: white;
-          margin: 15px 0 25px;
+          margin: 15px 0 25px; /* 移除auto，取消居中，确保占满 */
       }
 
       th {
@@ -109,22 +109,22 @@
           font-weight: 500;
           text-align: center;
           font-size: 18px; 
-          border: 1px solid #1e50b9; /* 表头边框 */
+          border: 1px solid #1e50b9;
       }
 
       td {
           padding: 14px;
-          border: 1px solid #e8f0fe; /* 单元格边框 */
+          border: 1px solid #e8f0fe;
           text-align: center;
-          transition: all 0.3s ease; /* 增加所有属性过渡 */
+          transition: all 0.3s ease;
           font-size: 17px; 
           background-color: #fff;
       }
 
       tr:hover td {
           background-color: #f8fbff;
-          box-shadow: inset 0 0 0 1px #4981e6; /* 悬停时边框高亮 */
-          transform: scale(1.02); /* 轻微缩放 */
+          box-shadow: inset 0 0 0 1px #4981e6;
+          transform: scale(1.02);
       }
 
       /* 图片样式 */
@@ -156,14 +156,14 @@
           margin: 15px auto;
           max-width: 800px;
           position: relative;
-          border: 1px solid #e0e7f5; /* 增加边框 */
-          transition: all 0.3s ease; /* 互动效果 */
+          border: 1px solid #e0e7f5;
+          transition: all 0.3s ease;
       }
 
       .text-block:hover {
-          box-shadow: 0 5px 15px rgba(73, 129, 230, 0.15); /* 悬停阴影 */
-          border-color: #4981e6; /* 边框变色 */
-          transform: translateY(-2px); /* 轻微上移 */
+          box-shadow: 0 5px 15px rgba(73, 129, 230, 0.15);
+          border-color: #4981e6;
+          transform: translateY(-2px);
       }
 
       .text-block::before {
@@ -189,7 +189,7 @@
           font-size: 17px; 
       }
 
-      /* 通用列表项容器样式 - 核心修改：给小文字加框 */
+      /* 通用列表项容器样式 */
       .list-item-box {
           background-color: #fff;
           border: 1px solid #e0e7f5;
@@ -198,42 +198,42 @@
           margin-bottom: 10px;
           transition: all 0.3s ease;
           box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-          width: 100%; /* 确保框体充满父容器宽度 */
+          width: 100%;
       }
 
-      /* 列表样式优化：左对齐顶格 - 核心修改 */
+      /* 列表样式：左对齐顶格 */
       .skill-list, .plan-list, .site-list {
-          padding-left: 30px; /* 只给列表符号留刚好的空间，取消多余内边距 */
-          margin: 10px 0 20px; /* 取消左右margin，实现顶格 */
+          padding-left: 30px;
+          margin: 10px 0 20px;
           list-style: none; 
       }
 
-      /* 技能列表：星星符号 - 调整位置适配顶格 */
+      /* 技能列表：星星符号 */
       .skill-list li {
           color: #444;
           position: relative;
           font-size: 17px; 
       }
       .skill-list li .list-item-box {
-          padding-left: 20px; /* 减少左侧内边距，贴合文字 */
+          padding-left: 20px;
       }
       .skill-list li::before {
           content: "★";
           color: #f5c518;
           position: absolute;
-          left: -25px; /* 调整符号位置，紧贴框体左侧 */
-          top: 12px; /* 垂直居中 */
+          left: -25px;
+          top: 12px;
           font-size: 1.1rem; 
       }
       .skill-list li:hover .list-item-box {
           background-color: #f8fbff;
           border-color: #4981e6;
           box-shadow: 0 4px 10px rgba(73, 129, 230, 0.1);
-          transform: translateX(5px); /* 轻微右移 */
+          transform: translateX(5px);
           color: #2a60c9;
       }
 
-      /* 学习计划列表：月亮符号 - 调整位置适配顶格 */
+      /* 学习计划列表：月亮符号 */
       .plan-list li {
           color: #444;
           position: relative;
@@ -258,7 +258,7 @@
           color: #2a60c9;
       }
 
-      /* 网站列表：云朵符号 - 调整位置适配顶格 */
+      /* 网站列表：云朵符号 */
       .site-list li {
           color: #444;
           position: relative;
@@ -283,16 +283,15 @@
           color: #2a60c9;
       }
 
-      /* 表单样式 */
+      /* 表单样式 - 核心修改：宽度占满 */
       form {
           background-color: white;
           padding: 30px;
           border-radius: 12px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-          margin: 15px auto 30px;
-          width: 100%;
-          max-width: 800px; /* 限制宽度 */
-          border: 1px solid #e0e7f5; /* 表单边框 */
+          margin: 15px 0 30px; /* 移除auto，取消居中 */
+          width: 100%; /* 确保宽度100% */
+          border: 1px solid #e0e7f5;
       }
 
       form p {
@@ -379,7 +378,7 @@
           padding: 10px 20px;
           border-radius: 8px;
           border: 1px solid #e0e7f5;
-          display: inline-block; /* 自适应宽度 */
+          display: inline-block;
           float: right;
       }
 
@@ -406,7 +405,7 @@
 </head>
 <body>
 <header>2026/1</header>
-<div style="clear: both;"></div> <!-- 清除浮动 -->
+<div style="clear: both;"></div>
 <h1> 欢迎来到fyp的个人主页 </h1>
 <hr>
 <h2>关于我</h2>
@@ -419,7 +418,6 @@
 
 <h2>我的技能</h2>
 <hr>
-<!-- 技能列表：星星符号 -->
 <ul class="skill-list">
   <li><div class="list-item-box">html 网页制作</div></li>
   <li><div class="list-item-box">python 编程</div></li>
@@ -428,7 +426,6 @@
 
 <h2>我的学习计划：</h2>
 <hr>
-<!-- 学习计划列表：月亮符号 -->
 <ol class="plan-list">
   <li><div class="list-item-box">学习 html 基础</div></li>
   <li><div class="list-item-box">学习 css 样式</div></li>
@@ -441,7 +438,6 @@
 <div class="text-block">
   <p class="a">以下是我一些喜欢的网站</p>
 </div>
-<!-- 网站列表：云朵符号 -->
 <ul class="site-list">
   <li><div class="list-item-box"><a href="https://www.baidu.com/">百度</a> -搜索引擎</div></li>
   <li><div class="list-item-box"><a href="https://www.bilibili.com/">哔哩哔哩</a> -视频网站</div></li>
@@ -450,7 +446,7 @@
 
 <h2>联系我</h2>
 <hr>
-<table border="0" style="max-width: 800px; margin: 0 auto;">
+<table border="0">
   <tr>
     <th>联系⽅式</th>
     <th>内容</th>
@@ -478,7 +474,7 @@
   </p>
   <p class="form-field">
     <label>你的邮箱：</label><br>
-    <input type="email" name="email"> <!-- 修正name属性错误 -->
+    <input type="email" name="email">
   </p>
   <p class="form-field">
     <label>留言内容：</label><br>
