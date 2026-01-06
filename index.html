@@ -172,29 +172,67 @@
       margin-top: 8px;
     }
 
-    /* 列表样式 */
+    /* 列表样式优化：解决重叠+个性化符号 */
     ul, ol {
-      padding-left: 30px;
+      padding-left: 40px; /* 增加左内边距，避免符号重叠 */
       margin: 10px 0 20px;
+      list-style: none; /* 隐藏默认符号 */
     }
 
-    li {
-      margin-bottom: 10px;
+    /* 技能列表：星星符号 */
+    .skill-list li {
+      margin-bottom: 12px;
       color: #444;
       transition: padding-left 0.2s ease;
       position: relative;
     }
-
-    li::before {
-      content: "•";
-      color: #4981e6;
+    .skill-list li::before {
+      content: "★";
+      color: #f5c518;
       position: absolute;
-      left: -18px;
-      font-weight: bold;
+      left: -28px; /* 调整位置避免重叠 */
+      font-size: 1rem;
+    }
+    .skill-list li:hover {
+      padding-left: 8px;
+      color: #2a60c9;
     }
 
-    li:hover {
-      padding-left: 5px;
+    /* 学习计划列表：月亮符号 */
+    .plan-list li {
+      margin-bottom: 12px;
+      color: #444;
+      transition: padding-left 0.2s ease;
+      position: relative;
+    }
+    .plan-list li::before {
+      content: "☽";
+      color: #4981e6;
+      position: absolute;
+      left: -28px;
+      font-size: 1.2rem;
+    }
+    .plan-list li:hover {
+      padding-left: 8px;
+      color: #2a60c9;
+    }
+
+    /* 网站列表：云朵符号 */
+    .site-list li {
+      margin-bottom: 12px;
+      color: #444;
+      transition: padding-left 0.2s ease;
+      position: relative;
+    }
+    .site-list li::before {
+      content: "☁";
+      color: #8ec5fc;
+      position: absolute;
+      left: -28px;
+      font-size: 1rem;
+    }
+    .site-list li:hover {
+      padding-left: 8px;
       color: #2a60c9;
     }
 
@@ -293,7 +331,6 @@
 <h2>关于我</h2>
 <hr>
 <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.1SNxrqZnl4oC90YbJx5gvAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="头像" width="200" height="200">
-<!-- 给段落增加装饰容器 -->
 <div class="text-block">
   <p class="a">大家好!我叫<strong>fyp</strong>,今年20岁，是一名大数据专业的大学生。</p>
   <p class="a">我喜欢编程、看比赛、打游戏，座右铭是：<em>"学⽆⽌境，每天进步⼀点点"</em></p>
@@ -301,7 +338,8 @@
 
 <h2>我的技能</h2>
 <hr>
-<ul>
+<!-- 技能列表：星星符号 -->
+<ul class="skill-list">
   <li>html 网页制作</li>
   <li>python 编程</li>
   <li>office 办公软件</li>
@@ -309,7 +347,8 @@
 
 <h2>我的学习计划：</h2>
 <hr>
-<ol>
+<!-- 学习计划列表：月亮符号 -->
+<ol class="plan-list">
   <li>学习 html 基础</li>
   <li>学习 css 样式</li>
   <li>学习 javascript</li>
@@ -318,36 +357,36 @@
 
 <h2>我喜欢的网站</h2>
 <hr>
-<!-- 给网站说明段落增加装饰 -->
 <div class="text-block">
   <p>以下是我一些喜欢的网站</p>
 </div>
-<ul>
-  <li><a href="https://www.baidu.com/">百度</a> -收索引擎</li>
-  <li><a href="https://www.bilibili.com/">哔哩哔哩</a> -视频网站</li>
-  <li><a href="https://github.com/">GitHub</a> -代码托管</li>
+<!-- 网站列表：云朵符号 -->
+<ul class="site-list">
+<li><a href="https://www.baidu.com/">百度</a> -收索引擎</li>
+<li><a href="https://www.bilibili.com/">哔哩哔哩</a> -视频网站</li>
+<li><a href="https://github.com/">GitHub</a> -代码托管</li>
 </ul>
 
 <h2>联系我</h2>
 <hr>
-<table border="1">
-  <tr>
-    <th>联系⽅式</th>
-    <th>内容</th>
-  </tr>
-  <tr>
-    <td>邮箱</td>
-    <td>1111111111@qq.com</td>
-  </tr>
-  <tr>
-    <td>电话</td>
-    <td>111-2222-3333</td>
-  </tr>
-  <tr>
-    <td>地址</td>
-    <td>中国重庆</td>
-  </tr>
-</table>
+ <table border="1">
+   <tr>
+     <th>联系⽅式</th>
+     <th>内容</th>
+   </tr>
+   <tr>
+     <td>邮箱</td>
+     <td>1111111111@qq.com</td>
+   </tr>
+   <tr>
+     <td>电话</td>
+     <td>111-2222-3333</td>
+   </tr>
+   <tr>
+     <td>地址</td>
+     <td>中国重庆</td>
+   </tr>
+ </table>
 
 <h2>给我留言</h2>
 <hr>
