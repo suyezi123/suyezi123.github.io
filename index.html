@@ -11,7 +11,7 @@
           padding: 0;
           box-sizing: border-box;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          font-size: 16px; /* 基础字号从默认16px调整为17px，全局文字基础放大 */
+          font-size: 16px; 
       }
 
       body {
@@ -19,9 +19,9 @@
           max-width: 1200px;
           margin: 0 auto;
           padding: 30px 40px;
-          line-height: 1.7; /* 行高微调，适配放大后的文字 */
+          line-height: 1.7; 
           color: #333;
-          font-size: 17px; /* 页面基础字号放大 */
+          font-size: 17px; 
       }
 
       /* 链接样式 */
@@ -30,7 +30,7 @@
           text-decoration: none;
           transition: all 0.3s ease;
           position: relative;
-          font-size: 17px; /* 链接文字放大 */
+          font-size: 17px; 
       }
 
       a:hover {
@@ -54,7 +54,7 @@
 
       /* 标题样式 */
       h1 {
-          font-size: 2.6rem; /* 从2.2rem放大到2.6rem */
+          font-size: 2.6rem; 
           color: #2a60c9;
           text-align: center;
           margin: 20px 0 30px;
@@ -65,7 +65,7 @@
       h2 {
           color: #3a79e8;
           margin: 35px 0 15px;
-          font-size: 1.8rem; /* 从1.5rem放大到1.8rem */
+          font-size: 1.8rem; 
           font-weight: 600;
           position: relative;
           padding-bottom: 8px;
@@ -93,12 +93,13 @@
       /* 表格样式 */
       table {
           width: 100%;
-          border-collapse: collapse;
-          margin: 15px 0 25px;
+          border-collapse: separate; /* 修改为separate支持圆角 */
+          border-spacing: 0;
           border-radius: 10px;
           overflow: hidden;
           box-shadow: 0 4px 12px rgba(0,0,0,0.08);
           background-color: white;
+          margin: 15px 0 25px;
       }
 
       th {
@@ -107,23 +108,23 @@
           padding: 14px;
           font-weight: 500;
           text-align: center;
-          font-size: 18px; /* 表头文字放大 */
+          font-size: 18px; 
+          border: 1px solid #1e50b9; /* 表头边框 */
       }
 
       td {
           padding: 14px;
-          border-bottom: 1px solid #e8f0fe;
+          border: 1px solid #e8f0fe; /* 单元格边框 */
           text-align: center;
-          transition: background-color 0.3s ease;
-          font-size: 17px; /* 表格内容文字放大 */
+          transition: all 0.3s ease; /* 增加所有属性过渡 */
+          font-size: 17px; 
+          background-color: #fff;
       }
 
-      tr:hover {
+      tr:hover td {
           background-color: #f8fbff;
-      }
-
-      tr:last-child td {
-          border-bottom: none;
+          box-shadow: inset 0 0 0 1px #4981e6; /* 悬停时边框高亮 */
+          transform: scale(1.02); /* 轻微缩放 */
       }
 
       /* 图片样式 */
@@ -143,7 +144,7 @@
       /* 文本对齐类 */
       .a, #a {
           text-align: center;
-          font-size: 17px; /* 对齐文本放大 */
+          font-size: 17px; 
       }
 
       /* 段落样式优化：增加装饰 */
@@ -155,12 +156,20 @@
           margin: 15px auto;
           max-width: 800px;
           position: relative;
+          border: 1px solid #e0e7f5; /* 增加边框 */
+          transition: all 0.3s ease; /* 互动效果 */
+      }
+
+      .text-block:hover {
+          box-shadow: 0 5px 15px rgba(73, 129, 230, 0.15); /* 悬停阴影 */
+          border-color: #4981e6; /* 边框变色 */
+          transform: translateY(-2px); /* 轻微上移 */
       }
 
       .text-block::before {
           content: "✦";
           color: #4981e6;
-          font-size: 1.4rem; /* 装饰符号放大 */
+          font-size: 1.4rem; 
           position: absolute;
           left: 15px;
           top: 20px;
@@ -169,7 +178,7 @@
       .a strong {
           color: #2a60c9;
           font-weight: 600;
-          font-size: 18px; /* 加粗文字放大 */
+          font-size: 18px; 
       }
 
       .a em {
@@ -177,73 +186,100 @@
           font-style: italic;
           display: inline-block;
           margin-top: 8px;
-          font-size: 17px; /* 斜体文字放大 */
+          font-size: 17px; 
+      }
+
+      /* 通用列表项容器样式 - 核心修改：给小文字加框 */
+      .list-item-box {
+          background-color: #fff;
+          border: 1px solid #e0e7f5;
+          border-radius: 8px;
+          padding: 12px 20px;
+          margin-bottom: 10px;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.03);
       }
 
       /* 列表样式优化：解决重叠+个性化符号 */
       ul, ol {
-          padding-left: 40px; /* 增加左内边距，避免符号重叠 */
-          margin: 10px 0 20px;
-          list-style: none; /* 隐藏默认符号 */
+          padding-left: 50px; /* 调整内边距适配新框体 */
+          margin: 10px auto 20px;
+          list-style: none; 
+          max-width: 800px; /* 限制宽度更美观 */
       }
 
       /* 技能列表：星星符号 */
       .skill-list li {
-          margin-bottom: 12px;
           color: #444;
-          transition: padding-left 0.2s ease;
           position: relative;
-          font-size: 17px; /* 技能列表文字放大 */
+          font-size: 17px; 
+      }
+      .skill-list li .list-item-box {
+          padding-left: 30px; /* 给符号留空间 */
       }
       .skill-list li::before {
           content: "★";
           color: #f5c518;
           position: absolute;
-          left: -28px; /* 调整位置避免重叠 */
-          font-size: 1.1rem; /* 星星符号放大 */
+          left: -35px; 
+          top: 12px; /* 垂直居中 */
+          font-size: 1.1rem; 
       }
-      .skill-list li:hover {
-          padding-left: 8px;
+      .skill-list li:hover .list-item-box {
+          background-color: #f8fbff;
+          border-color: #4981e6;
+          box-shadow: 0 4px 10px rgba(73, 129, 230, 0.1);
+          transform: translateX(5px); /* 轻微右移 */
           color: #2a60c9;
       }
 
       /* 学习计划列表：月亮符号 */
       .plan-list li {
-          margin-bottom: 12px;
           color: #444;
-          transition: padding-left 0.2s ease;
           position: relative;
-          font-size: 17px; /* 计划列表文字放大 */
+          font-size: 17px; 
+      }
+      .plan-list li .list-item-box {
+          padding-left: 30px;
       }
       .plan-list li::before {
           content: "☽";
           color: #4981e6;
           position: absolute;
-          left: -28px;
-          font-size: 1.3rem; /* 月亮符号放大 */
+          left: -35px;
+          top: 12px;
+          font-size: 1.3rem; 
       }
-      .plan-list li:hover {
-          padding-left: 8px;
+      .plan-list li:hover .list-item-box {
+          background-color: #f8fbff;
+          border-color: #4981e6;
+          box-shadow: 0 4px 10px rgba(73, 129, 230, 0.1);
+          transform: translateX(5px);
           color: #2a60c9;
       }
 
       /* 网站列表：云朵符号 */
       .site-list li {
-          margin-bottom: 12px;
           color: #444;
-          transition: padding-left 0.2s ease;
           position: relative;
-          font-size: 17px; /* 网站列表文字放大 */
+          font-size: 17px; 
+      }
+      .site-list li .list-item-box {
+          padding-left: 30px;
       }
       .site-list li::before {
           content: "☁";
           color: #8ec5fc;
           position: absolute;
-          left: -28px;
-          font-size: 1.1rem; /* 云朵符号放大 */
+          left: -35px;
+          top: 12px;
+          font-size: 1.1rem; 
       }
-      .site-list li:hover {
-          padding-left: 8px;
+      .site-list li:hover .list-item-box {
+          background-color: #f8fbff;
+          border-color: #4981e6;
+          box-shadow: 0 4px 10px rgba(73, 129, 230, 0.1);
+          transform: translateX(5px);
           color: #2a60c9;
       }
 
@@ -253,13 +289,28 @@
           padding: 30px;
           border-radius: 12px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-          margin: 15px 0 30px;
+          margin: 15px auto 30px;
           width: 100%;
+          max-width: 800px; /* 限制宽度 */
+          border: 1px solid #e0e7f5; /* 表单边框 */
       }
 
       form p {
           margin-bottom: 20px;
-          font-size: 17px; /* 表单段落文字放大 */
+          font-size: 17px; 
+      }
+
+      .form-field {
+          background-color: #f9fcff;
+          border: 1px solid #e0e7f5;
+          border-radius: 8px;
+          padding: 15px;
+          transition: all 0.3s ease;
+      }
+
+      .form-field:hover {
+          border-color: #4981e6;
+          box-shadow: 0 2px 8px rgba(73, 129, 230, 0.1);
       }
 
       label {
@@ -267,7 +318,7 @@
           margin-bottom: 8px;
           color: #555;
           font-weight: 500;
-          font-size: 18px; /* 表单标签文字放大 */
+          font-size: 18px; 
       }
 
       input[type="text"],
@@ -277,9 +328,9 @@
           padding: 12px 15px;
           border: 1px solid #e0e7f5;
           border-radius: 8px;
-          font-size: 17px; /* 输入框文字放大 */
+          font-size: 17px; 
           transition: all 0.3s ease;
-          background-color: #f9fcff;
+          background-color: #fff;
       }
 
       input[type="text"]:focus,
@@ -288,7 +339,6 @@
           outline: none;
           border-color: #4981e6;
           box-shadow: 0 0 0 3px rgba(73, 129, 230, 0.1);
-          background-color: white;
       }
 
       textarea {
@@ -303,7 +353,7 @@
           border: none;
           padding: 12px 25px;
           border-radius: 8px;
-          font-size: 17px; /* 按钮文字放大 */
+          font-size: 17px; 
           font-weight: 500;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -323,21 +373,40 @@
       header {
           text-align: right;
           color: #888;
-          font-size: 17px; /* 页头文字放大 */
+          font-size: 17px; 
           margin-bottom: 10px;
+          background-color: #fff;
+          padding: 10px 20px;
+          border-radius: 8px;
+          border: 1px solid #e0e7f5;
+          display: inline-block; /* 自适应宽度 */
+          float: right;
       }
 
       #a {
           color: #777;
-          font-size: 17px; /* 页脚文字放大 */
+          font-size: 17px; 
           margin-top: 30px;
-          padding-top: 20px;
+          padding: 20px;
           border-top: 1px solid #e0e7f5;
+          background-color: #fff;
+          border-radius: 8px;
+          border: 1px solid #e0e7f5;
+          max-width: 800px;
+          margin-left: auto;
+          margin-right: auto;
+          transition: all 0.3s ease;
+      }
+
+      #a:hover {
+          color: #4981e6;
+          border-color: #4981e6;
       }
   </style>
 </head>
 <body>
 <header>2026/1</header>
+<div style="clear: both;"></div> <!-- 清除浮动 -->
 <h1> 欢迎来到fyp的个人主页 </h1>
 <hr>
 <h2>关于我</h2>
@@ -352,67 +421,66 @@
 <hr>
 <!-- 技能列表：星星符号 -->
 <ul class="skill-list">
-  <li>html 网页制作</li>
-  <li>python 编程</li>
-  <li>office 办公软件</li>
+  <li><div class="list-item-box">html 网页制作</div></li>
+  <li><div class="list-item-box">python 编程</div></li>
+  <li><div class="list-item-box">office 办公软件</div></li>
 </ul>
 
 <h2>我的学习计划：</h2>
 <hr>
 <!-- 学习计划列表：月亮符号 -->
 <ol class="plan-list">
-  <li>学习 html 基础</li>
-  <li>学习 css 样式</li>
-  <li>学习 javascript</li>
-  <li>完成完整的网络项目</li>
+  <li><div class="list-item-box">学习 html 基础</div></li>
+  <li><div class="list-item-box">学习 css 样式</div></li>
+  <li><div class="list-item-box">学习 javascript</div></li>
+  <li><div class="list-item-box">完成完整的网络项目</div></li>
 </ol>
 
 <h2>我喜欢的网站</h2>
 <hr>
 <div class="text-block">
-  <!-- 增加.a类实现居中 -->
   <p class="a">以下是我一些喜欢的网站</p>
 </div>
 <!-- 网站列表：云朵符号 -->
 <ul class="site-list">
-  <li><a href="https://www.baidu.com/">百度</a> -收索引擎</li>
-  <li><a href="https://www.bilibili.com/">哔哩哔哩</a> -视频网站</li>
-  <li><a href="https://github.com/">GitHub</a> -代码托管</li>
+  <li><div class="list-item-box"><a href="https://www.baidu.com/">百度</a> -搜索引擎</div></li>
+  <li><div class="list-item-box"><a href="https://www.bilibili.com/">哔哩哔哩</a> -视频网站</div></li>
+  <li><div class="list-item-box"><a href="https://github.com/">GitHub</a> -代码托管</div></li>
 </ul>
 
 <h2>联系我</h2>
 <hr>
-<table border="1">
+<table border="0" style="max-width: 800px; margin: 0 auto;">
   <tr>
     <th>联系⽅式</th>
     <th>内容</th>
   </tr>
   <tr>
-    <td>邮箱</td>
-    <td>1111111111@qq.com</td>
+    <td><div class="list-item-box">邮箱</div></td>
+    <td><div class="list-item-box">1111111111@qq.com</div></td>
   </tr>
   <tr>
-    <td>电话</td>
-    <td>111-2222-3333</td>
+    <td><div class="list-item-box">电话</div></td>
+    <td><div class="list-item-box">111-2222-3333</div></td>
   </tr>
   <tr>
-    <td>地址</td>
-    <td>中国重庆</td>
+    <td><div class="list-item-box">地址</div></td>
+    <td><div class="list-item-box">中国重庆</div></td>
   </tr>
 </table>
 
 <h2>给我留言</h2>
 <hr>
 <form>
-  <p>
+  <p class="form-field">
     <label>你的名字:</label><br>
     <input type="text" name="name">
   </p>
-  <p>
+  <p class="form-field">
     <label>你的邮箱：</label><br>
-    <input type="email" name="password">
+    <input type="email" name="email"> <!-- 修正name属性错误 -->
   </p>
-  <p>
+  <p class="form-field">
     <label>留言内容：</label><br>
     <textarea name="message" rows="4"></textarea>
   </p>
@@ -423,4 +491,5 @@
 <hr>
 <p id="a"> 版权所有 © 2026 fyp | 最后更新：2026年1⽉ </p>
 </body>
+
 </html>
